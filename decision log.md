@@ -20,7 +20,7 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 | —                             | `Alliance_Name`            |
 | `begday`, `begmo`, `begyr`    | `Alliance_Start`           |
 | `endday`, `endmo`, `endyr`    | `Alliance_End`             |
-| —                             | `Alliance_Type`            |
+| `defense`	`offense`	`neutral`	`nonagg`	`consul`                             | `Alliance_Type`            |
 | `mem*` inference              | `N_Members`                |
 | `mem*`                        | `Members_List`             |
 
