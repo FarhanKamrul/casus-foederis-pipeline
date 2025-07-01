@@ -14,14 +14,35 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 
 ##### ATOP
 
-ATOP Name | Our Name
-atopid | Alliance_ID
---- | Alliance_Name
-begday, begmo, begyr | Alliance_Start
-endday, endmo, endyr | Alliance_End
---- | Alliance_Type
-mem* | Members_List
+| ATOP Variable(s)              | Variable in Master Dataset |
+|-------------------------------|----------------------------|
+| `atopid`                      | `Alliance_ID`              |
+| —                             | `Alliance_Name`            |
+| `begday`, `begmo`, `begyr`    | `Alliance_Start`           |
+| `endday`, `endmo`, `endyr`    | `Alliance_End`             |
+| —                             | `Alliance_Type`            |
+| `mem*` inference              | `N_Members`                |
+| `mem*`                        | `Members_List`             |
 
-#### Alliance Names Extracted from COW Dataset
-https://correlatesofwar.org/data-sets/formal-alliances/
+#### ICB Crisis Dataset
+
+| icb variable(s)                   | Variable in Master Dataset |
+|-----------------------------------|----------------------------|
+| `crisno`                          | `Crisis_ID`               |
+| `crisname`                        | `Crisis_Name`             |
+| `yrtrig`, `motrig`, `datrig`      | `Crisis_Start`            |
+| `yrterm`, `moterm`, `daterm`      | `Crisis_End`              |
+| `geog`                            | `Crisis_Location`         |
+| `cracid`                          | `Actor_List`              |
+| Instances of same  `crisno`       | `N_Members_Actor`         |
+
+
+* For actors, notice how many crises involve multiple actors, and hence have duplicate crisis numbers, each with entry by a specific actor.
+
+* MAIN QUESTION: Are all other variables same except cracid and actor, for all entries with the same crisno? If different, which entries are different?
+* Introduce an exploratory task for this, before proceeding to merge the datasets.
+
+
+
+#### ALLIANCE NAMES NOT FOUND YET
 
