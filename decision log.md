@@ -14,3 +14,14 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 
 ##### ATOP
 
+ATOP Name | Our Name
+atopid | Alliance_ID
+--- | Alliance_Name
+begday, begmo, begyr | Alliance_Start
+endday, endmo, endyr | Alliance_End
+--- | Alliance_Type
+mem* | Members_List
+
+#### Alliance Names Extracted from COW Dataset
+https://correlatesofwar.org/data-sets/formal-alliances/
+
