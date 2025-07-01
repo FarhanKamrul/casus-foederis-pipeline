@@ -30,8 +30,8 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 |-----------------------------------|----------------------------|
 | `crisno`                          | `Crisis_ID`               |
 | `crisname`                        | `Crisis_Name`             |
-| `yrtrig`, `motrig`, `datrig`      | `Crisis_Start`            |
-| `yrterm`, `moterm`, `daterm`      | `Crisis_End`              |
+| `yrtrig`, `motrig`, `datrig` > ICB1     | `Crisis_Start`            |
+| `yrterm`, `moterm`, `daterm` > ICB1     | `Crisis_End`              |
 | `geog`                            | `Crisis_Location`         |
 | `cracid`                          | `Actor_List`              |
 | Instances of same  `crisno`       | `N_Members_Actor`         |
@@ -41,6 +41,27 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 
 * MAIN QUESTION: Are all other variables same except cracid and actor, for all entries with the same crisno? If different, which entries are different?
 * Introduce an exploratory task for this, before proceeding to merge the datasets.
+* Also check if every crisno maps to a single geog value.
+
+#### Issues that arose:
+
+1. ICB2: Serbia and Yugoslavia have the same `cracid`.
+2. ICB2: Iran's `actloc` (actor location) is mapped to Middle East (13) about 15 times, but in 5 cases, `actloc` is marked as South Asia (15). The geographic location of the actor needs to be consistent; the `geog` variable already acts as the indicator for crisis location.
+3. Each actor has different crisis enter dates and exit dates, so the `Crisis_Start` and `Crisis_End` dates are codified using the system-level ICB1 dataset.
+4.  Found 9 crises with multiple geog values:
+
+| Crisis ID | Crisis Name                               | Distinct `geog` Values |
+|-----------|-------------------------------------------|------------------------|
+| 21        | Karl’s Return, Hungary (1921)             | 31.0, 35.0             |
+| 300       | Raids on ZIPRA (1979)                     | 22.0, 24.0             |
+| 307       | Rhodesia Settlement (1979)                | 22.0, 23.0             |
+| 365       | South Africa Cross-Border Raid (1986)     | 23.0, 22.0             |
+| 427       | US Embassy Bombings (1998)                | 13.0, 22.0, 21.0       |
+| 434       | Afghanistan / US (2001)                   | 13.0, 41.0             |
+| 460       | Chad–Sudan V (2009)                       | 24.0, 21.0             |
+| 466       | Sudan–South Sudan (2011)                  | 21.0, 22.0             |
+| 499       | Galwan Valley Border Clash (2020)         | 13.0, 11.0             |
+
 
 
 
