@@ -21,8 +21,8 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 | `begday`, `begmo`, `begyr`    | `Alliance_Start`           |
 | `endday`, `endmo`, `endyr`    | `Alliance_End`             |
 | `defense`	`offense`	`neutral`	`nonagg`	`consul`                             | `Alliance_Type`            |
-| `mem*` inference              | `N_Members`                |
-| `mem*`                        | `Members_List`             |
+| `mem*` infer number of members              | `N_Members`                |
+| `mem*` infer the list of members                 | `Members_List`             |
 
 #### ICB Crisis Dataset
 
@@ -45,7 +45,7 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 
 #### Issues that arose:
 
-1. ICB2: Serbia and Yugoslavia have the same `cracid`.
+1. ICB2: Serbia and Yugoslavia have the same `cracid`. Documented in the ICB2 codebook.
 2. ICB2: Iran's `actloc` (actor location) is mapped to Middle East (13) about 15 times, but in 5 cases, `actloc` is marked as South Asia (15). The geographic location of the actor needs to be consistent; the `geog` variable already acts as the indicator for crisis location.
 3. Each actor has different crisis enter dates and exit dates, so the `Crisis_Start` and `Crisis_End` dates are codified using the system-level ICB1 dataset.
 4.  Found 9 crises with multiple geog values:
@@ -62,8 +62,30 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 | 466       | Sudan–South Sudan (2011)                  | 21.0, 22.0             |
 | 499       | Galwan Valley Border Clash (2020)         | 13.0, 11.0             |
 
+Generally, the crisis locations seem to make sense, but this has to be accounted for in the master dataset. Will double check these edge cases.
 
+5. Interesting missing country cases, i.e., `cracid`(s) present in ICB but missing from COW. This is happening because ICB `cracid`(s) are almost similar to the Correlates of War country codes, but has a few added codes.
+   a. Vichy France (219). From Wikipedia: Vichy France, officially the French State, was a French rump state headed by Marshal Philippe Pétain during World War II, established as a result of the French capitulation after the defeat against Germany. It was named after its seat of government, the city of Vichy.
+   
+   b. Hijaz/Hejaz (671). From Wikipedia: Hejaz is a historical region in the western Arabian Peninsula, primarily located in modern-day Saudi Arabia.
+   
+   c. Najd/Nejd (672). From Wikipedia: Najd is a historical region of the Arabian Peninsula that includes most of the central region of Saudi Arabia. It is roughly bounded by the Hejaz region to the west, the Nafud desert in al-Jawf to the north, ad-Dahna Desert in al-Ahsa to the east, and Rub' al-Khali to the south, although its exact boundaries cannot be determined due to varying geographical and political limits throughout history.
 
+6. We ought to map the unmapped countries to specific geographical locations.
+   BHM,31,Bahamas
+   JAM,51,Jamaica
+   TRI,52,Trinidad and Tobago
+   BAR,53,Barbados
+   DMA,54,Dominica
+   SLU,56,St. Lucia
+   SVG,57,St. Vincent and the Grenadines
+   AAB,58,Antigua & Barbuda
+   SKN,60,St. Kitts and Nevis
+   BLZ,80,Belize
+   
+   
+
+   
 
 #### ALLIANCE NAMES NOT FOUND YET
 
