@@ -65,13 +65,14 @@ Let $C=\{c_1,\dots ,c_N\}$ be the set of ICB crises and $A=\{a_1,\dots ,a_M\}$ t
 Generally, the crisis locations seem to make sense, but this has to be accounted for in the master dataset. Will double check these edge cases.
 
 5. Interesting missing country cases, i.e., `cracid`(s) present in ICB but missing from COW. This is happening because ICB `cracid`(s) are almost similar to the Correlates of War country codes, but has a few added codes.
+
    a. Vichy France (219). From Wikipedia: Vichy France, officially the French State, was a French rump state headed by Marshal Philippe Pétain during World War II, established as a result of the French capitulation after the defeat against Germany. It was named after its seat of government, the city of Vichy.
    
    b. Hijaz/Hejaz (671). From Wikipedia: Hejaz is a historical region in the western Arabian Peninsula, primarily located in modern-day Saudi Arabia.
    
    c. Najd/Nejd (672). From Wikipedia: Najd is a historical region of the Arabian Peninsula that includes most of the central region of Saudi Arabia. It is roughly bounded by the Hejaz region to the west, the Nafud desert in al-Jawf to the north, ad-Dahna Desert in al-Ahsa to the east, and Rub' al-Khali to the south, although its exact boundaries cannot be determined due to varying geographical and political limits throughout history.
 
-6. We ought to map the unmapped countries to specific geographical locations.
+7. We ought to map the unmapped countries to specific geographical locations.
    BHM,31,Bahamas
    JAM,51,Jamaica
    TRI,52,Trinidad and Tobago
